@@ -1290,6 +1290,94 @@ footer:before {
     .comparison-table table {
         min-width: 650px;
     }
+    
+    /* スマホ対応の追加 */
+    .steps {
+        max-width: 100%;
+    }
+    
+    .steps li {
+        white-space: normal;
+        padding-left: 25px;
+    }
+    
+    .steps li:before {
+        width: 16px;
+        height: 16px;
+        top: 4px;
+    }
+    
+    .steps li:after {
+        width: 6px;
+        height: 6px;
+        left: 5px;
+        top: 9px;
+    }
+    
+    .line-button {
+        display: block;
+        width: 90%;
+        margin: 15px auto;
+    }
+    
+    .line-info h3 {
+        font-size: 20px;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonial-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .price-header {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .special-price span {
+        font-size: 30px;
+    }
+    
+    .discount {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+    
+    .guarantee-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .guarantee-icon {
+        margin: 0 auto 20px;
+    }
+    
+    .line-box {
+        padding: 25px 15px;
+    }
 }
 
 .line-button {
