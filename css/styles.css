@@ -733,6 +733,7 @@ footer:before {
     overflow: hidden;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     position: relative;
+    line-height: 0;
 }
 
 .intro-image img {
@@ -742,6 +743,7 @@ footer:before {
     transform: scale(1);
     transition: transform 0.5s ease;
     object-fit: cover;
+    margin: 0;
 }
 
 .intro-image:hover img {
@@ -853,12 +855,14 @@ footer:before {
     overflow: hidden;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     position: relative;
+    line-height: 0;
 }
 
 .instructor-image img {
     width: 100%;
     height: auto;
     display: block;
+    margin: 0;
 }
 
 .instructor-image::after {
@@ -969,6 +973,11 @@ footer:before {
 
 .comparison-table th:first-child {
     text-align: left;
+    border-top-left-radius: 20px;
+}
+
+.comparison-table th:last-child {
+    border-top-right-radius: 20px;
 }
 
 .comparison-table td:first-child {
@@ -1334,10 +1343,41 @@ footer:before {
         width: calc(100% + 40px);
         position: relative;
         left: -20px;
+        border-radius: 0;
     }
     
     .comparison-table table {
         min-width: 650px;
+        border-radius: 0;
+    }
+    
+    /* 比較表のカドの問題を修正 */
+    .comparison-table, 
+    .comparison-table table,
+    .comparison-table th:first-child,
+    .comparison-table th:last-child {
+        border-radius: 0;
+    }
+    
+    /* カラム間の境界をはっきりさせる */
+    .comparison-table th, 
+    .comparison-table td {
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .comparison-table td {
+        border-right: 1px solid #eee;
+    }
+    
+    .comparison-table td:last-child,
+    .comparison-table th:last-child {
+        border-right: none;
+    }
+    
+    /* 画像調整 */
+    .testimonial-image,
+    .instructor-image {
+        line-height: 0;
     }
     
     /* スマホ対応の追加 */
@@ -1364,11 +1404,15 @@ footer:before {
     }
     
     .line-button {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 90%;
         margin: 15px auto;
         font-size: 16px;
         padding: 12px 20px;
+        min-height: 48px;
+        text-align: center;
     }
     
     .line-info h3 {
@@ -1414,6 +1458,24 @@ footer:before {
         max-width: 100%;
         padding: 0 20px;
         box-sizing: border-box;
+    }
+    
+    /* 画像調整 */
+    .testimonial-image,
+    .intro-image,
+    .instructor-image {
+        font-size: 0;
+        line-height: 0;
+    }
+    
+    /* ボタン位置調整 */
+    .big-button, .cta-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -1483,11 +1545,31 @@ footer:before {
         top: 5px;
         left: -20px;
     }
+    
+    /* 画像のスペース問題を修正 */
+    .intro-image img,
+    .instructor-image img,
+    .testimonial-image {
+        margin: 0;
+        line-height: 0;
+        font-size: 0;
+    }
+    
+    /* ボタンの調整 */
+    .line-button, .cta-button, .big-button {
+        padding: 12px 15px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 .line-button {
     margin: 10px auto;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(135deg, #06c755, #00b900);
     color: white;
     padding: 12px 25px;
@@ -1500,6 +1582,8 @@ footer:before {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     word-break: keep-all;
     white-space: normal;
+    min-height: 48px;
+    width: auto;
 }
 
 .line-button:hover {
