@@ -856,6 +856,8 @@ footer:before {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     position: relative;
     line-height: 0;
+    max-height: 400px;
+    background-color: #f8f9fa;
 }
 
 .instructor-image img {
@@ -863,16 +865,12 @@ footer:before {
     height: auto;
     display: block;
     margin: 0;
+    object-fit: cover;
 }
 
+/* グラデーションを削除 */
 .instructor-image::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent 70%, rgba(0, 0, 0, 0.3));
+    display: none;
 }
 
 .instructor-info {
@@ -900,6 +898,7 @@ footer:before {
 .instructor-sns {
     margin-top: 25px;
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
 }
 
@@ -913,11 +912,65 @@ footer:before {
     font-size: 14px;
     font-weight: 500;
     transition: all 0.3s ease;
+    min-width: 120px;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .sns-link:hover {
     background: var(--primary-color);
     color: white;
+}
+
+@media (max-width: 768px) {
+    .instructor-profile {
+        flex-direction: column;
+    }
+    
+    .instructor-image {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 30px;
+        height: auto;
+        max-height: none;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .instructor-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+    }
+    
+    .instructor-sns {
+        justify-content: center;
+    }
+    
+    .sns-link {
+        min-width: 130px;
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .instructor-sns {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+    
+    .sns-link {
+        min-width: 140px;
+        padding: 10px;
+        flex-grow: 1;
+        max-width: 45%;
+        font-size: 13px;
+    }
 }
 
 /* カリキュラム詳細リスト */
