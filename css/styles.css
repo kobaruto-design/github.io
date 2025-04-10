@@ -774,9 +774,7 @@ footer:before {
     font-size: 36px;
     font-weight: 700;
     margin-bottom: 10px;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--secondary-color);
 }
 
 .stat-desc {
