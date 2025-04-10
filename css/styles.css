@@ -741,6 +741,7 @@ footer:before {
     display: block;
     transform: scale(1);
     transition: transform 0.5s ease;
+    object-fit: cover;
 }
 
 .intro-image:hover img {
@@ -1109,6 +1110,35 @@ footer:before {
     background: linear-gradient(to right, var(--secondary-color), transparent);
 }
 
+.additional-bonuses ul {
+    padding-left: 20px;
+}
+
+.additional-bonuses li {
+    margin-bottom: 15px;
+    font-size: 17px;
+    position: relative;
+    padding-left: 10px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.bonus-icon {
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.additional-bonuses li:before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gradient);
+}
+
 .big-button {
     display: block;
     width: 80%;
@@ -1261,6 +1291,19 @@ footer:before {
         flex-direction: column;
     }
     
+    .intro-image {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .intro-image img {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        object-position: center;
+    }
+    
     .stats {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1285,6 +1328,12 @@ footer:before {
     
     .comparison-table {
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 -20px;
+        padding: 0 20px;
+        width: calc(100% + 40px);
+        position: relative;
+        left: -20px;
     }
     
     .comparison-table table {
@@ -1318,6 +1367,8 @@ footer:before {
         display: block;
         width: 90%;
         margin: 15px auto;
+        font-size: 16px;
+        padding: 12px 20px;
     }
     
     .line-info h3 {
@@ -1326,6 +1377,43 @@ footer:before {
     
     section {
         padding: 60px 0;
+    }
+    
+    /* 特典のリスト位置調整 */
+    .bonuses ul, 
+    .additional-bonuses ul {
+        padding-left: 30px;
+    }
+    
+    .bonuses li,
+    .additional-bonuses li {
+        position: relative;
+        padding-left: 0;
+        margin-left: 0;
+    }
+    
+    .bonuses li:before,
+    .additional-bonuses li:before {
+        left: -25px;
+    }
+    
+    /* ボタンのテキスト折り返し対応 */
+    .cta-button, .line-button, .big-button {
+        white-space: normal;
+        word-break: keep-all;
+        hyphens: auto;
+    }
+    
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
     }
 }
 
@@ -1378,6 +1466,23 @@ footer:before {
     .line-box {
         padding: 25px 15px;
     }
+    
+    /* 先着10名様限定特典の調整 */
+    .additional-bonuses ul {
+        margin-left: 0;
+        padding-left: 25px;
+    }
+    
+    .additional-bonuses li {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 10px;
+    }
+    
+    .additional-bonuses li:before {
+        top: 5px;
+        left: -20px;
+    }
 }
 
 .line-button {
@@ -1393,10 +1498,38 @@ footer:before {
     font-size: 18px;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    word-break: keep-all;
+    white-space: normal;
 }
 
 .line-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     background: linear-gradient(135deg, #00b900, #06c755);
+}
+
+/* wbrタグは改行を許可する場所を示す */
+wbr {
+    display: none;
+}
+
+/* LINE公式アカウントを追加するボタンのスタイル */
+@media (max-width: 375px) {
+    wbr {
+        display: inline;
+    }
+    
+    .line-button {
+        font-size: 15px;
+        padding: 12px 15px;
+    }
+    
+    .bonus-icon {
+        display: inline-block;
+        width: 24px;
+    }
+    
+    .additional-bonuses li {
+        padding-left: 0;
+    }
 } 
